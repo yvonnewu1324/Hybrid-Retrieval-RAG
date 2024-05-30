@@ -96,7 +96,7 @@ hybrid_retrieval.connect("ranker", "prompt_builder.documents")
 hybrid_retrieval.connect("prompt_builder", "llm")
 
 # 6) Visualize the Pipeline (Optional)
-hybrid_retrieval.draw("hybrid-retrieval-RAG.png")
+hybrid_retrieval.draw("hybrid-retrieval-RAG-GPT.png")
 
 
 question = "What type of organism is commonly used in preparation of foods such as cheese and yogurt?"
@@ -122,5 +122,5 @@ def pretty_print_results(prediction):
 
 print("ranker ranking")
 print("response")
-#pretty_print_results(response)
+# pretty_print_results(response)
 print(response)

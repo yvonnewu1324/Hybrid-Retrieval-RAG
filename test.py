@@ -1,15 +1,15 @@
+from haystack.components.generators import HuggingFaceAPIGenerator
 import os
 from getpass import getpass
 from haystack.utils import Secret
 
-os.environ["YOUR_HF_API_TOKEN"] = getpass("Your HuggingFace Hub token:")
+os.environ["HF_API_TOKEN"] = getpass("Your HuggingFace Hub token:")
 
-from haystack.components.generators import HuggingFaceAPIGenerator
 
 llm = HuggingFaceAPIGenerator(api_type="serverless_inference_api",
-                                    api_params={"model": "meta-llama/Meta-Llama-3-8B-Instruct"})
-                                    #token=Secret.from_token("YOUR_HF_API_TOKEN"
-                                        #))
+                              api_params={"model": "meta-llama/Meta-Llama-3-8B-Instruct"})
+# token=Secret.from_token("YOUR_HF_API_TOKEN"
+# ))
 result = llm.run(prompt="""
   Would you be willing to financially back an inventor who is marketing a device
   that she claims has 25 kJ of heat transfer at 600 K, has heat transfer to the
@@ -26,5 +26,3 @@ result = llm.run(prompt="""
 # From https://phys.libretexts.org/Bookshelves/University_Physics/Exercises_(University_Physics)/Exercises%3A_College_Physics_(OpenStax)/15%3A_Thermodynamics_(Exercises)
 
 print(result)
-
-
